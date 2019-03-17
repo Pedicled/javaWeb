@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+	<!-- 配置数据源 -->
+	<bean id="dataSource"
+		 class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<!-- 数据库驱动和url -->
+		<property name="driverClassName" 
+				value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+		<property name="url" 
+				value="jdbc:sqlserver://127.0.0.1:1433;DatabaseName=spring" />
+		
+		<property name="username" value="sa" />
+		<property name="password" value="326159487nnk" />
+	</bean>
+	
+	<!-- 配置jdbc模板 -->
+	<bean id="jdbcTemplate"
+		class="org.springframework.jdbc.core.JdbcTemplate" >
+		<!-- 默认必须使用数据源 -->
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<!-- 定义id为accountDao的Bean -->
+	<bean id="accountDao" class="com.itheima.jdbc.AccountDaoImpl">
+		<!-- 将jdbcTemplate注入accountDao实例中 -->
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+	
+</beans>
