@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
 import com.itheima.po.Customer;
+import com.itheima.po.User;
 
 public class MybatisTest {
 	
@@ -92,7 +93,7 @@ public class MybatisTest {
 		sqlSession.close();
 	}
 	
-	@Test
+	
 	//É¾³ý¿Í»§
 	public void deleteCustomerTest() throws Exception{
 		String resource = "mybatis-config.xml";
@@ -107,6 +108,17 @@ public class MybatisTest {
 		else
 			System.out.println("Ö´ÐÐÉ¾³ý²Ù×÷Ê§°Ü£¡");
 		sqlSession.commit();
+		sqlSession.close();
+	}
+	
+	@Test
+	public void findAllUserTest() {
+		SqlSession sqlSession = MybatisUtils.getSession();
+		List<User> list = 
+				sqlSession.selectList("com.itheima.mapper.UserMapper.findAllUser");
+		for(User user:list) {
+			System.out.println(user);
+		}
 		sqlSession.close();
 	}
 }
