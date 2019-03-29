@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="db.properties" />
+	<settings>
+		<setting name="lazyLoadingEnabled" value="true" />
+		<setting name="aggressiveLazyLoading" value="false" />
+	</settings>
+	<typeAliases>
+		<package name="com.itheima.po" />
+	</typeAliases>
+	<!-- 配置环境，默认的环境id为sql server -->
+	<environments default="sql server">
+		<environment id="sql server">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${jdbc.driver}" />
+				<property name="url" value="${jdbc.url}" />
+				<property name="username" value="${jdbc.username}" />
+				<property name="password" value="${jdbc.password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<!-- 配置Mapper的位置 -->
+	<mappers>
+		<mapper resource="com/itheima/mapper/IDCardMapper.xml" />
+		<mapper resource="com/itheima/mapper/PersonMapper.xml" />
+		<mapper resource="com/itheima/mapper/UserMapper.xml" />
+	</mappers>
+</configuration>
