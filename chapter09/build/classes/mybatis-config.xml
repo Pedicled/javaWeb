@@ -27,6 +27,10 @@
 	<mappers>
 		<mapper resource="com/itheima/mapper/IDCardMapper.xml" />
 		<mapper resource="com/itheima/mapper/PersonMapper.xml" />
+		
 		<mapper resource="com/itheima/mapper/UserMapper.xml" />
+		
+		<mapper resource="com/itheima/mapper/ProductMapper.xml" />
+		<mapper resource="com/itheima/mapper/OrdersMapper.xml" />
 	</mappers>
 </configuration>

@@ -11,7 +11,7 @@
 		<id property="id" column="id" />
 		<result property="number" column="number" />
 		<!-- 多对多关联 -->
-		<collection property="productList" column="id" ofType="Product">
+		<collection property="productList" column="id" ofType="Product"
 			select="com.itheima.mapper.ProductMapper.findProductByID">
 		</collection>
 	</resultMap>
