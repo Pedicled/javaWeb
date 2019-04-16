@@ -18,4 +18,3 @@ public class DataConverter implements Converter<String,Date> {
             }
         }
     }
-}
