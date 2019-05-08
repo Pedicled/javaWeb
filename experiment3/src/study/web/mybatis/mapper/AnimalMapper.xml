@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="study.web.mybatis.mapper.AnimalMapper">
+
+	<resultMap type="animal" id="arm">
+		<id property="id" column="a_id"	/>
+		<result property="type" column="a_type"	/>
+		<result property="legs" column="a_legs"	/>
+	</resultMap>
+
+	<select id="findAnimalByLegs" parameterType="Integer" resultMap="arm">
+		select * from animal where a_legs = #{legs}
+	</select>
+</mapper>
