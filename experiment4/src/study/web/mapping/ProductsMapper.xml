@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="study.web.mapping.ProductsMapper" >
+	<select id="findProductById" parameterType="Integer" resultType="Products">
+		select * from products where id in(
+			select proid from order_pro where proid = #{proid}
+		)
+	</select>
+
+</mapper>
